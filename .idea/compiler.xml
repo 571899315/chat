@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="chat-client" />
+        <module name="chat-common" />
+        <module name="chat-route" />
+        <module name="chat-server" />
+        <module name="chat-zk" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chat" target="1.6" />
+      <module name="chat-client" target="1.8" />
+      <module name="chat-common" target="1.6" />
+      <module name="chat-route" target="1.8" />
+      <module name="chat-server" target="1.8" />
+      <module name="chat-zk" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

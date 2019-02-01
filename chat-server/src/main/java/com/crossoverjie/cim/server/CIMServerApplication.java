@@ -12,9 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.net.InetAddress;
 
-/**
- * @author crossoverJie
- */
+
 @SpringBootApplication
 public class CIMServerApplication implements CommandLineRunner{
 
