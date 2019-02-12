@@ -76,6 +76,20 @@ public class RouteRequestImpl implements RouteRequest {
                 .post(requestBody)
                 .build();
 
+//        OkHttpClient mOkHttpClient =
+//                new OkHttpClient.Builder()
+//                        .readTimeout(READ_TIMEOUT,TimeUnit.SECONDS)//设置读取超时时间
+//                        .writeTimeout(WRITE_TIMEOUT,TimeUnit.SECONDS)//设置写的超时时间
+//                        .connectTimeout(CONNECT_TIMEOUT,TimeUnit.SECONDS)//设置连接超时时间
+//                        .build();
+//        ---------------------
+//                作者：千雅爸爸
+//        来源：CSDN
+//        原文：https://blog.csdn.net/Rodulf/article/details/51363295
+//        版权声明：本文为博主原创文章，转载请附上博文链接！
+
+
+
         Response response = okHttpClient.newCall(request).execute();
         try {
             if (!response.isSuccessful()) {
@@ -95,11 +109,14 @@ public class RouteRequestImpl implements RouteRequest {
         RequestBody requestBody = RequestBody.create(mediaType, jsonObject.toString());
 
         Request request = new Request.Builder()
+
                 .url(p2pRouteRequestUrl)
                 .post(requestBody)
                 .build();
 
-        Response response = okHttpClient.newCall(request).execute();
+        Response response = okHttpClient
+                .newCall(request)
+                .execute();
         if (!response.isSuccessful()) {
             throw new IOException("Unexpected code " + response);
         }

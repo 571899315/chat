@@ -2,11 +2,14 @@ package com.crossoverjie.cim.server.controller;
 
 import com.crossoverjie.cim.common.enums.StatusEnum;
 import com.crossoverjie.cim.common.res.BaseResponse;
+import com.crossoverjie.cim.server.handle.CIMServerHandle;
 import com.crossoverjie.cim.server.vo.req.SendMsgReqVO;
 import com.crossoverjie.cim.common.constant.Constants;
 import com.crossoverjie.cim.server.server.CIMServer;
 import com.crossoverjie.cim.server.vo.res.SendMsgResVO;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Controller;
@@ -36,6 +39,8 @@ public class IndexController {
     @Autowired
     private CounterService counterService;
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
+
     /**
      * 向服务端发消息
      * @param sendMsgReqVO
@@ -45,6 +50,8 @@ public class IndexController {
     @RequestMapping(value = "sendMsg",method = RequestMethod.POST)
     @ResponseBody
     public BaseResponse<SendMsgResVO> sendMsg(@RequestBody SendMsgReqVO sendMsgReqVO){
+
+        LOGGER.info("服务端收到请求,数据:"+sendMsgReqVO);
         BaseResponse<SendMsgResVO> res = new BaseResponse();
         cimServer.sendMsg(sendMsgReqVO) ;
 
